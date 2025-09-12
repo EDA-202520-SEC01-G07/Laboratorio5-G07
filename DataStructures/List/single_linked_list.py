@@ -237,8 +237,25 @@ def sub_list(my_list, pos, num_elmts):
             nodo=nodo["next"]
     return s_list
 
-def default_sort_criteria(element1, element2):
+def default_sort_criteria(element_1, element_2):
     is_sorted = False
     if element_1 < element_2:
         is_sorted = True
     return is_sorted
+
+def insertion_sort(my_list, sort_crit):
+    sort_list = new_list()
+    nodo = my_list["first"]
+    
+    while nodo != None:
+        if sort_list["size"]==0:
+            sort_list = add_last(sort_list, nodo["info"])
+        else:
+            actual = sort_list["first"]
+            position = 0
+            while position < sort_list["size"] and sort_crit(actual["info"], nodo["info"]):
+                actual = actual["next"]
+                position +=1
+            sort_list = insert_element(sort_list, nodo["info"], position)
+        nodo=nodo["next"]
+    return sort_list

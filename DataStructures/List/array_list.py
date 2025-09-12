@@ -97,8 +97,21 @@ def sub_list(array_list, start_index, num_elements):
             add_last(newlist,array_list["elements"][i])
         return newlist
     
-def default_sort_criteria(element1, element2):
+def default_sort_criteria(element_1, element_2):
     is_sorted = False
     if element_1 < element_2:
         is_sorted = True
     return is_sorted
+
+def insertion_sort(my_list, sort_crit):
+    sort_list = new_list()
+    default_sort_criteria(my_list["elements"][0], my_list["elements"][1])
+    for i in range(0,my_list["size"]):
+        if sort_list["size"]==0:
+            sort_list = add_last(sort_list, my_list["elements"][i])
+        else:
+            position = 0
+            while position < sort_list["size"] and sort_crit(sort_list["elements"][position], my_list["elements"][i]):
+                position +=1
+            sort_list = insert_element(sort_list, position, my_list["elements"][i])
+    return sort_list
