@@ -128,3 +128,21 @@ def selection_sort(array_list, default_sort_criteria):
         if min_index != i:
             exchange(array_list, i, min_index)
     return array_list
+
+
+def shell_sort(my_list, sort_crit):
+    h = 1
+    while h < size(my_list):
+        h = 3*h + 1
+        while h > 0:
+            for i in range(size(my_list)):
+                i = first_element(my_list)
+                index_i = 0
+                j = get_element(my_list, h)
+                index_j = h
+                
+                criterio = sort_crit(i,j)
+                if criterio == False:
+                    exchange(my_list,index_i,index_j)
+            
+            h = h//3
