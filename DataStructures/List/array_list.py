@@ -97,8 +97,21 @@ def sub_list(array_list, start_index, num_elements):
             add_last(newlist,array_list["elements"][i])
         return newlist
     
-def default_sort_criteria(element1, element2):
+def default_sort_criteria(element_1, element_2):
     is_sorted = False
     if element_1 < element_2:
         is_sorted = True
     return is_sorted
+def selection_sort(array_list, default_sort_criteria):
+    n = size(array_list)
+    for i in range(n - 1):
+        min_index = i
+        min_elem = get_element(array_list, i)
+        for j in range(i + 1, n):
+            elem = get_element(array_list, j)
+            if default_sort_criteria(elem, min_elem):
+                min_elem = elem
+                min_index = j
+        if min_index != i:
+            exchange(array_list, i, min_index)
+    return array_list
