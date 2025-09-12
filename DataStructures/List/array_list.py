@@ -97,8 +97,25 @@ def sub_list(array_list, start_index, num_elements):
             add_last(newlist,array_list["elements"][i])
         return newlist
     
-def default_sort_criteria(element1, element2):
+def default_sort_criteria(element_1, element_2):
     is_sorted = False
     if element_1 < element_2:
         is_sorted = True
     return is_sorted
+
+def shell_sort(my_list, sort_crit):
+    h = 1
+    while h < size(my_list):
+        h = 3*h + 1
+        while h > 0:
+            for i in range(size(my_list)):
+                i = first_element(my_list)
+                index_i = 0
+                j = get_element(my_list, h)
+                index_j = h
+                
+                criterio = sort_crit(i,j)
+                if criterio == False:
+                    exchange(my_list,index_i,index_j)
+            
+            h = h//3
