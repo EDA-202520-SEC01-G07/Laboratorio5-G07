@@ -26,9 +26,9 @@ Este repositorio forma parte del marco docente de estructura de datos y algoritm
 
 Los estudiantes editan esta sección para agregar sus nombres, correos electrónicos de Uniandes y especificar qué funcionalidad de proyecto implementarán.
 
-1. Juliana Rodríguez Morales, js.rodriguezm1234@uniandes.edu.co, 202421552
-2. Juan Andrés Lozada Barragán, j.lozadab@uniandes.edu.co, 202510410
-3. Maria Clara Quijano, m.quijanoa@uniandes.edu.co, 202420069
+1. Juliana Rodríguez Morales, js.rodriguezm1234@uniandes.edu.co, 202421552, Est 3
+2. Juan Andrés Lozada Barragán, j.lozadab@uniandes.edu.co, 202510410, Est 1
+3. Maria Clara Quijano, m.quijanoa@uniandes.edu.co, 202420069, Est 2
 
 [Volver al inicio](#laboratorio-5)
 
