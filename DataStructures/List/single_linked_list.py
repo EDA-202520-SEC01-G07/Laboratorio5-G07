@@ -236,3 +236,9 @@ def sub_list(my_list, pos, num_elmts):
             s_list = add_last(s_list, nodo["info"])
             nodo=nodo["next"]
     return s_list
+
+def default_sort_criteria(element1, element2):
+    is_sorted = False
+    if element_1 < element_2:
+        is_sorted = True
+    return is_sorted
