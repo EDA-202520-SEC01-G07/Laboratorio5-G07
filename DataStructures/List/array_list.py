@@ -97,7 +97,7 @@ def sub_list(array_list, start_index, num_elements):
             add_last(newlist,array_list["elements"][i])
         return newlist
     
-def default_sort_criteria(element_1, element_2):
+def default_sort_criteria(element1, element2):
     is_sorted = False
     if element_1 < element_2:
         is_sorted = True
