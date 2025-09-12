@@ -115,3 +115,16 @@ def insertion_sort(my_list, sort_crit):
                 position +=1
             sort_list = insert_element(sort_list, position, my_list["elements"][i])
     return sort_list
+def selection_sort(array_list, default_sort_criteria):
+    n = size(array_list)
+    for i in range(n - 1):
+        min_index = i
+        min_elem = get_element(array_list, i)
+        for j in range(i + 1, n):
+            elem = get_element(array_list, j)
+            if default_sort_criteria(elem, min_elem):
+                min_elem = elem
+                min_index = j
+        if min_index != i:
+            exchange(array_list, i, min_index)
+    return array_list
