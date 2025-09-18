@@ -96,7 +96,8 @@ def sub_list(array_list, start_index, num_elements):
         for i in range(start_index,end_index):
             add_last(newlist,array_list["elements"][i])
         return newlist
-    
+
+# Funciones lab 5    
 def default_sort_criteria(element_1, element_2):
     is_sorted = False
     if element_1 < element_2:
@@ -115,6 +116,7 @@ def insertion_sort(my_list, sort_crit):
                 position +=1
             sort_list = insert_element(sort_list, position, my_list["elements"][i])
     return sort_list
+
 def selection_sort(array_list, default_sort_criteria):
     n = size(array_list)
     for i in range(n - 1):
@@ -131,18 +133,7 @@ def selection_sort(array_list, default_sort_criteria):
 
 
 def shell_sort(my_list, sort_crit):
-    h = 1
-    while h < size(my_list):
-        h = 3*h + 1
-        while h > 0:
-            for i in range(size(my_list)):
-                i = first_element(my_list)
-                index_i = 0
-                j = get_element(my_list, h)
-                index_j = h
-                
-                criterio = sort_crit(i,j)
-                if criterio == False:
-                    exchange(my_list,index_i,index_j)
-            
-            h = h//3
+    h = (3(size(my_list))+1)//3
+    temporal = new_list()
+    while h > 0:
+        for i in range(h, size(my_list)):
