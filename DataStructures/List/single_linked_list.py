@@ -243,7 +243,7 @@ def default_sort_criteria(element_1, element_2):
         is_sorted = True
     return is_sorted
 
-def insertion_sort(my_list, sort_crit):
+def insertion_sort(my_list, default_sort_criteria):
     sort_list = new_list()
     nodo = my_list["first"]
     
@@ -253,7 +253,7 @@ def insertion_sort(my_list, sort_crit):
         else:
             actual = sort_list["first"]
             position = 0
-            while position < sort_list["size"] and sort_crit(actual["info"], nodo["info"]):
+            while position < sort_list["size"] and default_sort_criteria(actual["info"], nodo["info"]):
                 actual = actual["next"]
                 position +=1
             sort_list = insert_element(sort_list, nodo["info"], position)
