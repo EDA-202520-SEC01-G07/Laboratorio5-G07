@@ -147,6 +147,7 @@ def print_sort_results(sort_books, sample=3):
             # Obtener el libro en la posición actual.
             book = data_structure.get_element(sorted_books, book_pos)
             # TODO: Completar la lógica para imprimir la información del libro.
+            print_book_info(book)
             # Disminuir el contador de la muestra.
             sample -= 1
 
@@ -159,8 +160,8 @@ data_str="""Seleccione el algoritmo de estructura de datos:
 
 algo_str = """Seleccione el algoritmo de ordenamiento recursivo:
 1. Selection Sort
-2. insertion Sort
-3. shell Sort
+2. Insertion Sort
+3. Shell Sort
 """
                  
 exit_opt_lt = ("s", "S", "1", True, "true", "True", "si", "Si", "SI")
@@ -192,8 +193,8 @@ def main():
         elif int(inputs[0]) == 1:
             print("Cargando información de los archivos ....")
             bk, at, tg, bktg = load_data(control)
-            print("Número de libros: "+bk+"\n Número de autores: "+at+"\
-                \nGéneros de libros: "+tg+"\nAsociaciones de géneros: "+bktg)
+            print("Número de libros: "+str(bk)+"\nNúmero de autores: "+str(at)+"\
+                \nGéneros de libros: "+str(tg)+"\nAsociaciones de géneros: "+str(bktg))
             #TODO: imprimir la cantidad de libros, autores, géneros y asociaciones de géneros a libros cargados
 
         elif int(inputs[0]) == 2:
@@ -227,7 +228,7 @@ def main():
             result = logic.sort_books(control)
             #TODO:imprimir el resultado del ordenamiento 
             print("Tiempo de ejecución:", f"{result[1]:.3f}", "[ms]")
-            print("El resultado del ordenamiento es: \n"+result)
+            print("El resultado del ordenamiento es: \n"+str(result))
 
         elif int(inputs[0]) == 8:
             # confirmar salida del programa
