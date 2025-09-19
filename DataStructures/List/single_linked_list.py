@@ -272,5 +272,5 @@ def shell_sort(my_list, sort_crit):
                 j -= h
             change_info(my_list, j+1, temp)
             i += 1
-        h //= 2
+        h=h//3
     return my_list

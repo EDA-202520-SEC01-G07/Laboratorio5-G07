@@ -136,7 +136,7 @@ def selection_sort(array_list, default_sort_criteria):
 
 
 def shell_sort(my_list, sort_crit):
-    h = (3(size(my_list))+1)//3
+    h = (3*(size(my_list))+1)//3
     while h > 0:
         for i in range(h, size(my_list)):
             temp = get_element(my_list, i+1)
@@ -145,5 +145,5 @@ def shell_sort(my_list, sort_crit):
                 change_info(my_list, j+1, get_element(my_list, j-h+1))
                 j -= h
             change_info(my_list, j+1, temp)
-        h //= 2
+        h = h//3
     return my_list
