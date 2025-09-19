@@ -54,10 +54,12 @@ def print_menu():
     """
     print("Bienvenido")
     #TODO: agregar opción 0 para escoger el tipo de estructura de datos y opción 5 para seleccionar el algoritmo de ordenamiento
+    print("0- Escoger tipo de estructura de datos y algoritmos")
     print("1- Cargar información en el catálogo")
     print("2- Consultar la información de un libro")
     print("3- Consultar los libros de un autor")
     print("4- Libros por género")
+    print("5- Seleccionar algoritmo de ordenamiento")
     print("6- Seleccionar muestra de libros")
     print("7- Ordenar los libros por rating")
     print("8- Salir")
@@ -190,6 +192,8 @@ def main():
         elif int(inputs[0]) == 1:
             print("Cargando información de los archivos ....")
             bk, at, tg, bktg = load_data(control)
+            print("Número de libros: "+bk+"\n Número de autores: "+at+"\
+                \nGéneros de libros: "+tg+"\nAsociaciones de géneros: "+bktg)
             #TODO: imprimir la cantidad de libros, autores, géneros y asociaciones de géneros a libros cargados
 
         elif int(inputs[0]) == 2:
@@ -223,6 +227,7 @@ def main():
             result = logic.sort_books(control)
             #TODO:imprimir el resultado del ordenamiento 
             print("Tiempo de ejecución:", f"{result[1]:.3f}", "[ms]")
+            print("El resultado del ordenamiento es: \n"+result)
 
         elif int(inputs[0]) == 8:
             # confirmar salida del programa
