@@ -135,17 +135,16 @@ def selection_sort(array_list, default_sort_criteria):
     return array_list
 
 
-def shell_sort(my_list, sort_crit):
-    h = (3*(size(my_list))+1)//3
+def shell_sort(my_list, default_sort_criteria):
+    h=size(my_list)//3
     while h > 0:
-        for i in range(h, size(my_list)):
-            temp = get_element(my_list, i+1)
-            j = i
-            while j >= h and sort_crit(temp, get_element(my_list, j-h+1)):
-                change_info(my_list, j+1, get_element(my_list, j-h+1))
+        for i in range(h):
+            temp = get_element(my_list, i)
+            j = h
+            while j != i and default_sort_criteria(get_element(my_list, j),temp):
+                exchange(my_list, j, i)
                 j -= h
-            change_info(my_list, j+1, temp)
-        h = h//3
+        h = 3*h+1
     return my_list
 def merge_sort(my_list, sort_crit):
     if my_list["size"] > 1:

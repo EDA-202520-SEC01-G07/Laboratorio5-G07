@@ -242,6 +242,7 @@ def default_sort_criteria(element_1, element_2):
     if element_1 < element_2:
         is_sorted = True
     return is_sorted
+sort_criteria = default_sort_criteria
 
 def insertion_sort(my_list, default_sort_criteria):
     sort_list = new_list()
@@ -274,3 +275,39 @@ def shell_sort(my_list, sort_crit):
             i += 1
         h=h//3
     return my_list
+
+def merge_sort(my_list, sort_crit):
+    tam = size(my_list)
+    if tam == 0: #lista vacía
+        return my_list
+    elif tam == 1: #lista 1 elemento, caso recursivo
+        return my_list
+    else:
+        m = tam//2
+        izq = new_list()
+        for k in range(0, m):
+            add_last(izq, get_element(my_list, k))
+        izq_f = merge_sort(izq, sort_crit)
+        
+        der = new_list()
+        for l in range (m+1, tam-1):
+            add_last(der, get_element(my_list, l))
+        der_f = merge_sort(der, sort_crit)
+        return merge(izq_f, der_f, sort_crit)
+    
+def merge(lst1, lst2, sort_crit):
+    l=0
+    r=0
+    new = new_list()
+    while l < size(lst1) and r < size(lst2):
+        elem_l = get_element(lst1, l)
+        elem_r = get_element(lst2, r)
+        x = sort_crit(elem_l, elem_r)
+        if x == True: # l < r
+            add_last(new, elem_l)
+            l += 1
+        else:
+            add_last(new, elem_r)
+            r += 1
+    return new
+            
