@@ -261,6 +261,7 @@ def insertion_sort(my_list, default_sort_criteria):
         nodo=nodo["next"]
     return sort_list
 
+
 def shell_sort(my_list, sort_crit):
     h = (3 * my_list["size"] + 1) // 3  
     while h > 0:
