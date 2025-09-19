@@ -137,3 +137,17 @@ def shell_sort(my_list, sort_crit):
     temporal = new_list()
     while h > 0:
         for i in range(h, size(my_list)):
+            j = i+h
+            while j < size(my_list)
+                add_first(temporal, get_element(my_list, i))
+                el = get_element(my_list, j)
+                for k in (0, size(temporal)):
+                    if sort_crit(el, get_element(temporal, k)) == True:
+                        add_first(temporal, el)
+                        exit for
+                j += h
+        h=h//3
+                
+            
+                
+                    
