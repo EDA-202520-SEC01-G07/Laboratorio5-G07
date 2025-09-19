@@ -259,3 +259,18 @@ def insertion_sort(my_list, sort_crit):
             sort_list = insert_element(sort_list, nodo["info"], position)
         nodo=nodo["next"]
     return sort_list
+
+def shell_sort(my_list, sort_crit):
+    h = (3 * my_list["size"] + 1) // 3  
+    while h > 0:
+        i = h
+        while i < my_list["size"]:
+            temp = get_element(my_list, i+1)
+            j = i
+            while j >= h and sort_crit(temp, get_element(my_list, j-h+1)):
+                change_info(my_list, j+1, get_element(my_list, j-h+1))
+                j -= h
+            change_info(my_list, j+1, temp)
+            i += 1
+        h //= 2
+    return my_list

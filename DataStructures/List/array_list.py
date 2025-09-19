@@ -119,7 +119,7 @@ def insertion_sort(my_list, sort_crit):
 
 def selection_sort(array_list, default_sort_criteria):
     n = size(array_list)
-    for i in range(n - 1):
+    for i in range(n):
         min_index = i
         min_elem = get_element(array_list, i)
         for j in range(i + 1, n):
@@ -134,6 +134,13 @@ def selection_sort(array_list, default_sort_criteria):
 
 def shell_sort(my_list, sort_crit):
     h = (3(size(my_list))+1)//3
-    temporal = new_list()
     while h > 0:
         for i in range(h, size(my_list)):
+            temp = get_element(my_list, i+1)
+            j = i
+            while j >= h and sort_crit(temp, get_element(my_list, j-h+1)):
+                change_info(my_list, j+1, get_element(my_list, j-h+1))
+                j -= h
+            change_info(my_list, j+1, temp)
+        h //= 2
+    return my_list
