@@ -147,3 +147,30 @@ def shell_sort(my_list, sort_crit):
             change_info(my_list, j+1, temp)
         h = h//3
     return my_list
+def merge_sort(my_list, sort_crit):
+    if my_list["size"] > 1:
+        mitad = my_list["size"] // 2
+        izq= sub_list(my_list, 0, mitad)
+        dere= sub_list(my_list, mitad, my_list["size"]- mitad)
+
+        mitad_izqui = merge_sort(izq, sort_crit)
+        mitad_dere = merge_sort(dere, sort_crit)
+
+        return merge(mitad_izqui, mitad_dere, sort_crit)
+    else:
+        return my_list
+def merge(list_1, list_2, sort_crit):
+    l=0
+    r=0
+    merged_list = new_list()
+    while l < list_1["size"] and r < list_2["size"]:
+        ei= get_element(list_1, l)
+        ed= get_element(list_2, r)
+        x= sort_crit(ei, ed)
+        if x:
+            add_last(merged_list, ei)
+            l += 1
+        else:
+            add_last(merged_list, ed)
+            r += 1
+    return merged_list
