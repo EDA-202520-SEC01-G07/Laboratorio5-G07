@@ -173,3 +173,25 @@ def merge(list_1, list_2, sort_crit):
             add_last(merged_list, ed)
             r += 1
     return merged_list
+def quick_sort(array_list, sort_crit):
+    if array_list["size"] > 1:
+        pivot = get_element(array_list, 0)
+        less = new_list()
+        greater = new_list()
+        for i in range(1, array_list["size"]):
+            elem = get_element(array_list, i)
+            if sort_crit(elem, pivot):
+                add_last(less, elem)
+            else:
+                add_last(greater, elem)
+        sorted_less = quick_sort(less, sort_crit)
+        sorted_greater = quick_sort(greater, sort_crit)
+        sorted_array = new_list()
+        for i in range(sorted_less["size"]):
+            add_last(sorted_array, get_element(sorted_less, i))
+        add_last(sorted_array, pivot)
+        for i in range(sorted_greater["size"]):
+            add_last(sorted_array, get_element(sorted_greater, i))
+        return sorted_array
+    else:
+        return array_list
