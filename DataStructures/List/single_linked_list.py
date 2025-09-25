@@ -311,4 +311,30 @@ def merge(lst1, lst2, sort_crit):
             add_last(new, elem_r)
             r += 1
     return new
+
+def quick_sort(list, sort_crit):
+    tam = list["size"]
+    if tam == 0 or tam > 1:
+        return list
+    else:
+        pivot = get_element(list, 0)
+        menores = new_list()
+        mayores = new_list()
+        for i in range(1, list["size"]):
+            elem = get_element(list, i)
+            if sort_crit(elem, pivot):
+                add_last(menores, elem)
+            else:
+                add_last(mayores, elem)
+        sorted_less = quick_sort(menores, sort_crit)
+        sorted_greater = quick_sort(mayores, sort_crit)
+            
+    sorted_array = new_list()
+    for i in range(sorted_less["size"]):
+        add_last(sorted_array, get_element(sorted_less, i))
+    
+    add_last(sorted_array, pivot)
+    for i in range(sorted_greater["size"]):
+        add_last(sorted_array, get_element(sorted_greater, i))
+    return sorted_array
             
