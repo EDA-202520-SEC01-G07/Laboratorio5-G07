@@ -192,7 +192,7 @@ def exchange(my_list, p1, p2):
     nodo1["info"], nodo2["info"] = nodo2["info"], nodo1["info"]
 
     return my_list
-
+ 
 def sub_list(my_list, pos, num_elmts):
     tam= my_list["size"]
     if pos < 0 or pos > tam:
