@@ -221,6 +221,7 @@ def default_sort_criteria(element_1, element_2):
     return is_sorted
 sort_criteria = default_sort_criteria
 
+
 def insertion_sort(my_list, default_sort_criteria):
     sort_list = new_list()
     nodo = my_list["first"]
