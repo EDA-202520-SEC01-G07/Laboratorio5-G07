@@ -177,65 +177,20 @@ def change_info(my_list, pos, new_info):
         nodo["info"]=new_info
     return my_list
 
-def exchange(my_list,p1, p2):
-    tam= size(my_list)
-    if p1 < 0 or p1 >= tam or p2 < 0 or p2 >= tam:
-        raise Exception('IndexError: list index out of range')
-    
-    elif p1 == p2:
+def exchange(my_list, p1, p2):
+    if p1 == p2:
         return my_list
-    elif p1!=p2:
-        temp=p1
-        p1=p2
-        p2=temp
-        
-        nodo = my_list["first"]
-        cont = 0
-        ant= None
-        
-        n1 = None
-        ant1 = None
-        
-        n2 = None
-        ant2 = None
-     
-        while nodo is not None:
-            if cont == p1:
-                n1=nodo
-                ant1 = ant
-            
-            elif cont == p2:
-                n2=nodo
-                ant2=ant
-            prev = nodo
-            nodo=nodo["next"]
-            cont+=1   
-        
-        if n1["next"] == n2:
-            if ant1 is not None:
-                ant1["next"]=n2
-            else:
-                my_list["first"]=n2
-            n1["next"]=n2["next"]
-            n2["next"]=n1
-        else:
-            if ant1 is not None:
-                ant1["next"]=n2
-            else:
-                my_list["first"]=n2
-            if ant2 is not None:
-                ant2["next"]=n1
-            else:
-                my_list["first"]=n1
-                
-            temp=n1["next"]
-            n1["next"]=n2["next"]
-            n2["next"]=temp
-            
-            if n1["next"] is None:
-                my_list["last"]=n1
-            if n2["next"] is None:
-                my_list["last"]=n2
+
+    nodo1 = my_list["first"]
+    for _ in range(p1):
+        nodo1 = nodo1["next"]
+
+    nodo2 = my_list["first"]
+    for _ in range(p2):
+        nodo2 = nodo2["next"]
+
+    nodo1["info"], nodo2["info"] = nodo2["info"], nodo1["info"]
+
     return my_list
 
 def sub_list(my_list, pos, num_elmts):
