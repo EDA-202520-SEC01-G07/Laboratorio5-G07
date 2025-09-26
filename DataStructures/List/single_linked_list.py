@@ -237,7 +237,7 @@ def exchange(my_list,p1, p2):
             if n2["next"] is None:
                 my_list["last"]=n2
     return my_list
-
+ 
 def sub_list(my_list, pos, num_elmts):
     tam= my_list["size"]
     if pos < 0 or pos > tam:
