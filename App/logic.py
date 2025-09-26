@@ -335,8 +335,8 @@ def compare_book_ids(id, book):
 
 def eval_ratings(book1, book2):
     # TODO: completar la función para comparar dos libros por su rating promedio, el libro 1 debe ser mayor al 2.
-    rating1 = (book1["ratings_1"]+book1["ratings_2"]+book1["ratings_3"]+book1["ratings_4"]+book1["ratings_5"])/5
-    rating2 = (book2["ratings_1"]+book2["ratings_2"]+book2["ratings_3"]+book2["ratings_4"]+book2["ratings_5"])/5
+    rating1 = (float(book1["ratings_1"])+float(book1["ratings_2"])+float(book1["ratings_3"])+float(book1["ratings_4"])+float(book1["ratings_5"]))/5
+    rating2 = (float(book2["ratings_1"])+float(book2["ratings_2"])+float(book2["ratings_3"])+float(book2["ratings_4"])+float(book2["ratings_5"]))/5
     if rating1==rating2:
         return 0
     elif rating1 > rating2:
@@ -352,24 +352,24 @@ def sort_books(catalog):
 
     sorted_books = catalog["book_sublist"]
     start_time = get_time()
-    sort_crit = data_structure.default_sort_criteria
+    sort_crit = eval_ratings
 
     # TODO: cambie el None para completar las opciones para selection_sort, insertion_sort, shell_sort, merge_sort y quick_sort 
 
     if sort_algorithm == 1:
-        sorted_books_s = data_structure.selection_sort(catalog, sort_crit)
+        sorted_books_s = data_structure.selection_sort(sorted_books, sort_crit)
 
     elif sort_algorithm == 2:
-        sorted_books_s = data_structure.insertion_sort(catalog, sort_crit)
+        sorted_books_s = data_structure.insertion_sort(sorted_books, sort_crit)
 
     elif sort_algorithm == 3:
-        sorted_books_s = data_structure.shell_sort(catalog, sort_crit)
+        sorted_books_s = data_structure.shell_sort(sorted_books, sort_crit)
 
     elif sort_algorithm == 4:
-        sorted_books_s = data_structure.merge_sort(catalog, sort_crit)
+        sorted_books_s = data_structure.merge_sort(sorted_books, sort_crit)
 
     elif sort_algorithm == 5:
-        sorted_books_s = data_structure.quick_sort(catalog, sort_crit)
+        sorted_books_s = data_structure.quick_sort(sorted_books, sort_crit)
 
     end_time = get_time()
     delta = delta_time(start_time, end_time)

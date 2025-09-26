@@ -26,6 +26,8 @@
  """
 
 import sys
+default_limit = 1000
+sys.setrecursionlimit(default_limit*10)
 import App.logic as logic
 from DataStructures.List import array_list as al
 from DataStructures.List import single_linked_list as lt
@@ -162,6 +164,8 @@ algo_str = """Seleccione el algoritmo de ordenamiento recursivo:
 1. Selection Sort
 2. Insertion Sort
 3. Shell Sort
+4. Merge Sort
+5. Quick Sort
 """
                  
 exit_opt_lt = ("s", "S", "1", True, "true", "True", "si", "Si", "SI")
@@ -228,7 +232,7 @@ def main():
             result = logic.sort_books(control)
             #TODO:imprimir el resultado del ordenamiento 
             print("Tiempo de ejecución:", f"{result[1]:.3f}", "[ms]")
-            print("El resultado del ordenamiento es: \n"+str(result))
+           
 
         elif int(inputs[0]) == 8:
             # confirmar salida del programa
