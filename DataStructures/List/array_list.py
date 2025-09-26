@@ -147,7 +147,7 @@ def shell_sort(my_list, sort_criteria):
                 temp = get_element(my_list, i)
                 gap = i+h
                 while gap < tam:
-                    if sort_crit(get_element(my_list, gap),temp):
+                    if sort_criteria(get_element(my_list, gap),temp):
                         exchange(my_list, gap, i)
                     gap += h
             h = h//3
